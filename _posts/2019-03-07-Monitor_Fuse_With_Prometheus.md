@@ -132,7 +132,7 @@ prometheus-operator   2         4h
 At this point, we'll also notice the Prometheus Operator has installed a route for the Prometheus console. Upon issuing this command: 
 
 ```py
-[mcostell@work /]$ oc get routes 
+[mcostell@work /]$ oc get routes -n prometheus-dev
 NAME         HOST/PORT                                         PATH      SERVICES     PORT      TERMINATION   WILDCARD
 prometheus   prometheus-prometheus-dev.192.168.42.118.nip.io             prometheus   <all>                   None
 
@@ -141,4 +141,107 @@ Will deliver the following Prometheus Console that currently does not have anyth
 
 ![Prometheus Console](/assets/img/prometheus/prometheus.initial.png "Prometheus Console")
 
+### Creating a Fuse based Application To Monitor 
+
+TODO: Complete This Section 
+
 ## Configuring ServiceMonitors
+
+So at this point, we have a functional Prometheus cluster as launched by the Prometheus Operator; however, we're not actually monitoring anything. If we recall, we installed a set of CRD's for the Prometheus Operator's use, in prior steps. Let's go ahead and create a Kubernetes resource based on the following CRD we installed into the cluster earlier:
+
+```yaml
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: servicemonitors.monitoring.coreos.com
+spec:
+  group: monitoring.coreos.com
+  names:
+    kind: ServiceMonitor
+    listKind: ServiceMonitorList
+    plural: servicemonitors
+    singular: servicemonitor
+  scope: Namespaced
+  version: v1
+```
+
+As we're interested in our Fuse application created earlier, we'll create a Service Monitor resource accordingly using the following productized Red Hat template (again, its worth noting, there is nothing specific to Red Hat in this template, only the CoreOS operator. Templates like these should likely be extended to accomodate the different use cases some of which we'll discuss below).
+
+The Red Hat template (found at: https://github.com/jboss-fuse/application-templates/blob/master/fuse-servicemonitor.yml) paramaterizes creation of Service and Serivce Monitor Object resources in Openshift/K8s:
+
+```yaml
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: fuse-prometheus-service-monitor
+  labels:
+    app: fuse-prometheus-service-monitor
+  annotations:
+    openshift.io/display-name: "Red Hat Fuse service-monitor install"
+    openshift.io/provider-display-name: "Red Hat, Inc."
+    description: "A ServiceMonitor specifies how groups of services should be monitored - this template defines how to monitor a Fuse application for Prometheus."
+    tags: "fuse,prometheus,prometheus-operator,monitoring"
+    iconClass: "icon-rh-integration"
+    version: "1.0"
+message: |-
+  prometheus-operator is now deployed to ${NAMESPACE}
+parameters:
+- name: NAMESPACE
+  displayName: Namespace
+  value: fuse
+  required: true
+  description: Namespace in which the prometheus-operator is installed. 
+- name: FUSE_SERVICE_NAME
+  displayName: Fuse Service Name
+  value: 'myservicename'
+  required: true
+  description: The service name of the Fuse application to monitor.
+- name: FUSE_SERVICE_TEAM
+  displayName: Fuse Service Team
+  value: 'fuse'
+  required: true
+- name: ENDPOINT_PORT
+  displayName: Endpoint port
+  value: 'web'
+  required: true
+
+objects:
+#
+# OpenShift resources 
+#
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    name: ${FUSE_SERVICE_NAME}
+    namespace: ${NAMESPACE}
+    labels:
+      team: ${FUSE_SERVICE_TEAM}
+  spec:
+    selector:
+      matchLabels:
+        app: ${FUSE_SERVICE_NAME}
+    endpoints:
+    - port: ${ENDPOINT_PORT}
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: ${FUSE_SERVICE_NAME}
+    namespace: ${NAMESPACE}
+    labels:
+      app: ${FUSE_SERVICE_NAME}
+  spec:
+    selector:
+      app: ${FUSE_SERVICE_NAME}
+    ports:
+    - name: ${ENDPOINT_PORT}
+      port: 9779  
+```
+
+As we mentioned earlier when installing our Fuse Rest Application, the Red Hat Fuse image we used to build our Rest service using Springboot and Apache Camel provides us with an underlying prometheus yaml, installs a prometheus jmx scaper into our runtime, and provides us with a uri for Prometheus to interrogate to collect metrics. 
+
+As we setup our Serivce Monitor objects, we'll notice that our Service Objects that represent our Fuse sample Rest service should expose port 9779 along with other ports needed for K8s to interrogate its health, and whatever port our sample application serves up http traffic for the Rest service it provides. It is also critical that they have the correct labels for our Service Monitor object to select the Service Object and put it under monitoring of Prometheus. 
+
+With the above configuration of our Service Monitor objects, we will be pointing our 
+
+  
