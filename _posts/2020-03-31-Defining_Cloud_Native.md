@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is Cloud Native Integration
+title: What is Cloud Native Integration?
 tags: cloud cloud-native cloud native knative Camel 
 eye_catch: /assets/img/cncf.png
 ---
