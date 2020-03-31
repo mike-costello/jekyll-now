@@ -238,7 +238,7 @@ objects:
       port: 9779  
 ```
 
-As we mentioned earlier when installing our Fuse Rest Application, the Red Hat Fuse image we used to build our Rest service using Springboot and Apache Camel provides us with an underlying prometheus yaml, installs a prometheus jmx scaper into our runtime, and provides us with a uri for Prometheus to interrogate to collect metrics. 
+As we mentioned earlier when installing our Fuse Rest Application, the Red Hat Fuse image we used to build our Rest service using Springboot and Apache Camel provides us with an underlying prometheus yaml, installs a prometheus jmx srcaper into our runtime, and provides us with a uri for Prometheus to interrogate to collect metrics. 
 
 As we setup our Serivce Monitor objects, we'll notice that our Service Objects that represent our Fuse sample Rest service should expose port 9779 along with other ports needed for K8s to interrogate its health, and whatever port our sample application serves up http traffic for the Rest service it provides. It is also critical that they have the correct labels for our Service Monitor object to select the Service Object and put it under monitoring of Prometheus. 
 
