@@ -99,6 +99,7 @@ oc new-project prometheus-dev
 ```
 
 We'll use the Red Hat productized yaml resources to create the CRD's and our Operator; however, it is worth noting, that these yaml templates do not require use of Red Hat software, and simply install the CoreOS Operator. As result, we will issue the following command to the oc cluster: 
+
 ```py
 oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/master/fuse-prometheus-crd.yml
 ```
