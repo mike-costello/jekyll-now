@@ -22,16 +22,16 @@ In the end, we'll find that to meet our integration needs in our brave new cloud
 Here we define the **"Cloud"** [What is the Cloud?](https://github.com/mike-costello/cloud-native-integration/blob/master/definition-cloud.md)
 [What is the Cloud?]({{ site.baseurl }}{% link cloud-native/definition-cloudnative.md %})
 
-Here we define the term **"Cloud Native"** [What is Cloud Native?](cloud-native/definition-cloudnative.md)
+Here we define the term **"Cloud Native"** [What is Cloud Native?](https://github.com/mike-costello/cloud-native-integration/blob/master/definition-cloudnative.md)
 
 ### Is MicroService Architecture *Cloud Native*?
-Great question. In short, almost. Here we discuss why: [Is MicroService Architecture Cloud Native?](/assets/cloud-native/msa-cloudnative.md)
+Great question. In short, almost. Here we discuss why: [Is MicroService Architecture Cloud Native?](https://github.com/mike-costello/cloud-native-integration/blob/master/msa-cloudnative.md)
 
 ## **Cloud Native Integration**  
 As we define the ***cloud and cloud native*** , it becomes clear that integration between these myriad components requires integration. In fact, as workloads appear in different clouds, clusters, and transition between legacy approaches to *cloud native* approaches, **integration becomes a front and center** feature of our enterprise architecture. 
 
-Here we explain why a container platform is the *Cloud Native* run time of choice for **Cloud Native Integration**: [Integration and the Container Platform](cloud-native-container-platform.md)
+Here we explain why a container platform is the *Cloud Native* run time of choice for **Cloud Native Integration**: [Integration and the Container Platform](https://github.com/mike-costello/cloud-native-integration/blob/master/cloud-native-container-platform.md)
 
 and 
 
-Here we define **Cloud Native Integration** and why it is an important evolutionary leap for our modern enterprise architecture(s): [What is Cloud Native Integration?](what-is-cloud-native-integration.md) 
+Here we define **Cloud Native Integration** and why it is an important evolutionary leap for our modern enterprise architecture(s): [What is Cloud Native Integration?](https://github.com/mike-costello/cloud-native-integration/blob/master/what-is-cloud-native-integration.md) 
