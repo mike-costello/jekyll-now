@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What does "Cloud Native" Mean?
-tags: Cloud Native Integration 
+tags: CloudNative CNCF Cloud Enterprise EnterpriseIntegration Integration 
 eye_catch: /assets/img/cncf.png
 ---
 
@@ -20,6 +20,7 @@ In the end, we'll find that to meet our integration needs in our brave new cloud
 ## Defining Terms
 
 Here we define the **"Cloud"** [What is the Cloud?](https://github.com/mike-costello/cloud-native-integration/blob/master/definition-cloud.md)
+[What is the Cloud?]({{ site.baseurl }}{% link cloud-native/definition-cloudnative.md %})
 
 Here we define the term **"Cloud Native"** [What is Cloud Native?](cloud-native/definition-cloudnative.md)
 
