@@ -5,7 +5,7 @@ tags: Cloud Native Integration
 eye_catch: /assets/img/cncf.png
 ---
 
-# What is “Cloud Native” Integration? 
+# What is “Cloud Native”? And How Does it Apply to Integration? 
 *An Enterprise Integration Practice Perspective* 
 
 The terms ***"Cloud" and "Cloud Native"*** have become two pivotal terms in the software industry implying significant change and a flurry of new techniques aimed at providing ever increasing efficiency, and efficacy 
@@ -19,7 +19,7 @@ In the end, we'll find that to meet our integration needs in our brave new cloud
 
 ## Defining Terms
 
-Here we define the **"Cloud"** [What is the Cloud?](definition-cloud.md)
+Here we define the **"Cloud"** [What is the Cloud?](https://github.com/mike-costello/cloud-native-integration/blob/master/definition-cloud.md)
 
 Here we define the term **"Cloud Native"** [What is Cloud Native?](definition-cloudnative.md)
 
