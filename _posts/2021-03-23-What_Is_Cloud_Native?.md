@@ -1,3 +1,10 @@
+---
+layout: post
+title: What does "Cloud Native" Mean?
+tags: Cloud Native Integration 
+eye_catch: /assets/img/prometheus/cncf.png
+---
+
 # What is “Cloud Native” Integration? 
 *An Enterprise Integration Practice Perspective* 
 
