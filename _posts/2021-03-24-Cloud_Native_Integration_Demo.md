@@ -14,6 +14,7 @@ This repository (https://github.com/mike-costello/cloud-native-event-mesh) conta
 As we distill the high level system architecture as described by the *Cloud Native Integration* document ![Cloud Native Integration: The View From Space](/assets/img/cloud-native-event-mesh/CloudNativeIntegration.00.00.001.png "Cloud Native Integration: From Space")
 
 We notice a few distinct architectural layers: 
+
 * **Event Mesh**
 The *event mesh* intends to handle peer to peer event communication in a fashion that allows for several *Cloud Native* characteristics such as high availability, reliability, and location agnostic behaviour between peers. The event mesh acts as a rendezvous point between eventing peers (event emitters and event receivers), and provides event emitters a graph of event receivers that may span clusters or even clouds. 
 
@@ -288,7 +289,7 @@ At this point we will wand to create the following namespaces:
 ##### Installing the Interconnect Router in *cluster-1*
 
 As we have use of the operator hub in Openshift 4, we will simply install an Interconnect Operator to the namespace "cluster-1". 
-![Installing the Interconnect Operator in Cluster 1](/images/interconnect-cluster-1.png "Installing the Interconnect Operator to Cluster-1")
+![Installing the Interconnect Operator in Cluster 1](/assets/img/cloud-native-event-mesh/interconnect-cluster-1.png "Installing the Interconnect Operator to Cluster-1")
 
 At this point, we will be able to start creating some certificates from the cluster issuer we have already established and inevitably configure our Interconnect router for trust. 
 In the namespace "cluster-1", we will provision a certificate for our Interconnect router which we will use to wire up the Interconnect router for trust across inter-router connections. 
