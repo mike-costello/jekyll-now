@@ -2,7 +2,7 @@
 layout: post
 title: Cloud Native Integration - A Working Demo
 tags: CloudNative CNCF Cloud Enterprise EnterpriseIntegration Integration 
-eye_catch: /assets/img/cloud-native-event-mesh/CloudNativeIntegration.00.00.001.png
+eye_catch: /assets/img/cloud-native-event-mesh/cloud-server.png
 ---
 
 # ***Cloud Native Integration***: *A working* ***Demo*** 
