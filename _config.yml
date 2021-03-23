@@ -92,6 +92,7 @@ gems:
   - jekyll-paginate
   - jekyll-feed
   - jemoji
+  - jekyll-relative-links
 
 #
 # Styles: see "_sass/base/_variables.scss"
@@ -120,3 +121,7 @@ exclude:
   - LICENSE
   - README.md
   - vendor
+
+relative_links:
+  enabled:     true
+  collections: true

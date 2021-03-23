@@ -21,7 +21,7 @@ In the end, we'll find that to meet our integration needs in our brave new cloud
 
 Here we define the **"Cloud"** [What is the Cloud?](https://github.com/mike-costello/cloud-native-integration/blob/master/definition-cloud.md)
 
-Here we define the term **"Cloud Native"** [What is Cloud Native?](cloud-native/definition-cloudnative.md)
+Here we define the term **"Cloud Native"** [What is Cloud Native?](_posts/cloud-native/definition-cloudnative.md)
 
 ### Is MicroService Architecture *Cloud Native*?
 Great question. In short, almost. Here we discuss why: [Is MicroService Architecture Cloud Native?](/assets/cloud-native/msa-cloudnative.md)
