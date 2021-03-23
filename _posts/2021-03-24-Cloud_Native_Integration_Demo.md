@@ -7,7 +7,7 @@ eye_catch: /assets/img/cloud-native-event-mesh/CloudNativeIntegration.00.00.001.
 
 # ***Cloud Native Integration***: *A working* ***Demo*** 
 
-This repository [This Repo](https://github.com/mike-costello/cloud-native-event-mesh) contains a working demonstration of how to quickly implement a Cloud Native architecture approach (with Enterprise Integration patterns as a central concern) as distilled in [Cloud Native Integration](https://github.com/rh-ei-stp/cloud-native-integration). 
+[This repository](https://github.com/mike-costello/cloud-native-event-mesh) contains a working demonstration of how to quickly implement a Cloud Native architecture approach (with Enterprise Integration patterns as a central concern) as distilled in [What is *Cloud Native* Integration](https://github.com/rh-ei-stp/cloud-native-integration). 
 
 ## Demo Description 
 
