@@ -11,7 +11,8 @@ eye_catch: /assets/img/cloud-server.png
 
 ## Demo Description 
 
-As we distill the high level system architecture as described by the *Cloud Native Integration* document 
+As we distill the high level system architecture as described by the *Cloud Native Integration* document
+ 
 ![Cloud Native Integration: The View From Space](/assets/img/cloud-native-event-mesh/CloudNativeIntegration.00.00.001.png "Cloud Native Integration: From Space")
 
 We notice a few distinct architectural layers: 
