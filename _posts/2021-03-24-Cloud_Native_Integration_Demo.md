@@ -17,32 +17,32 @@ As we distill the high level system architecture as described by the *Cloud Nati
 
 We notice a few distinct architectural layers: 
 
--**Event Mesh**
+**Event Mesh**
 The *event mesh* intends to handle peer to peer event communication in a fashion that allows for several *Cloud Native* characteristics such as high availability, reliability, and location agnostic behaviour between peers. The event mesh acts as a rendezvous point between eventing peers (event emitters and event receivers), and provides event emitters a graph of event receivers that may span clusters or even clouds. 
 
--**Event Sink**
+**Event Sink**
 The *event sink* provides a port to the underlying event bus our integrations process events on. 
 
--**Event Bus**
+**Event Bus**
 The event bus provides a service bus so that event processors, that often need to integrate multiple different data sources to provide event aggregate level output, are able to communicate with each other in an asynchronous fashion. This decouples event emitters and receivers, as well as decoupling event aggregate behaviour that distills our series of events into meaningful business level data. As a result, integrations are bound to their domain, and are likely decomposed along their bounded context. It is along the *event bus* that features that constitute our enterprise perform the stream processing and integration work that satisfies enterprise features. Inevitably, these stream processors and integration components aggregate events into sources of truth to maintain consistency and state across the enterprise.   
 
--**Event Store** 
+**Event Store** 
 The event store represents a persistent source of truth for events and event aggregates. We define *aggregate event* as events that attempt to provide consistency boundaries for transactions, distributions and concurrency. In our view, while events may be represented in a transitive store such as Kafka, event aggregates define consistency across our data plane and represent a conceptual whole for state at a point in time for our domain entitties. As a result, our event store should be viewed as a conceptual whole that can offer capabilities as a source of truth for volatile, short term events, and a source of truth for long standing event aggregates.  
 
 ### Representing these Ports, Adapters and Layers
 
 This demo seeks to display these architectural techniques by leveraging the Red Hat Integration platform. 
 
-* **Event Mesh** 
+**Event Mesh** 
 To provide *event mesh* capabilities, this demo leverages *Apache Qpid Dispatch Router* to ensure a service and event communication control plane that provides capabilities for *high availability, resilience, multi and hybrid cloud* as well as policy to apply over the mesh to ensure governance is properly applied as our event emitters and event receivers communicate in a peer to peer fashion 
 
-* **Event Sink** 
+**Event Sink** 
 To provide an *event sink* as a port into our underlying business logic and sources of truth, we leverage *Apache Camel* and a set of complementary cloud native tooling
 
-* **Event Bus** 
+**Event Bus** 
 The event bus provides a normalized means of asynchronous behaviour for event consumers and emmitters. As *Cloud Native Integration* depends on and features cloud native capabilities, we leverage *Knative Eventing* to provide a cloud native service bus abstraction with *Apache Kafka* as the underlying persistence engine for our communication over our service bus channels. 
 
-* **Event Store** 
+**Event Store** 
 As *Apache Kafka* is the persistence store for our volatile events and event aggregates that travel along our service bus, this demonstration relies on a traditional OLTP store as the inevitable source of truth for event aggregates. While an OLTP store is not required as a source of truth for event aggregates in our view of the world, it describes the complementary nature of *Cloud Native Integration* to traditional legacy enterprise deployments. 
 
 ## Getting Started 
